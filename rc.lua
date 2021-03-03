@@ -284,7 +284,7 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", function() awful.spawn('/home/saurabh/.config/rofi/powermenu/powermenu.sh') end,
+    awful.key({ modkey, "Shift"   }, "q", function() awful.spawn('/home/saurabh/.config/awesome/rofi/powermenu/powermenu.sh') end,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -329,7 +329,7 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey },            "e",     function () awful.spawn('thunar') end,
               {description = "File Manager", group = "Applications"}),
-    awful.key({ altkey },            "space",   function () awful.spawn('/home/saurabh/.config/rofi/launchers/misc/launcher.sh') end,
+    awful.key({ altkey },            "space",   function () awful.spawn('/home/saurabh/.config/awesome/rofi/launchers/misc/launcher.sh') end,
               {description = "File Manager", group = "Applications"}),
 
     awful.key({ modkey },            "Escape",   function () awful.spawn('i3lock-fancy') end,
