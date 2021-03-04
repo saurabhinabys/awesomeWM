@@ -14,6 +14,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+----------------------------------------------------
 
 
 -- Enable hotkeys help widget for VIM and other apps
@@ -335,11 +336,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "Escape",   function () awful.spawn('i3lock-fancy') end,
               {description = "lock screen", group = "awesome"}),
     -- Multimedia Keys
-    awful.key({  },   "XF86AudioRaiseVolume",      function () awful.spawn('pactl set-sink-volume 0 +5%')   end,
+    awful.key({  },   "XF86AudioRaiseVolume",      function () awful.spawn('amixer set Master 5%+')   end,
               {description = "Raise volume", group = "Keys"}),
-    awful.key({  },    "XF86AudioLowerVolume",      function () awful.spawn('pactl set-sink-volume 0 -5%')  end,
+    awful.key({  },    "XF86AudioLowerVolume",      function () awful.spawn('amixer set Master 5%-')  end,
               {description = "Raise volume", group = "Keys"}),
-    awful.key({  },    "XF86AudioMute",             function () awful.spawn('pactl set-sink-mute 0 toggle') end,
+    awful.key({  },    "XF86AudioMute",             function () awful.spawn('amixer set Master toggle') end,
               {description = "Mute", group = "Keys"}),
     awful.key({  },    "XF86AudioPrev",             function () awful.spawn('playerctl previous') 	    end,
               {description = "Previous", group = "Keys"}),	    
@@ -595,7 +596,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
-   "feh --bg-fill --random /home/saurabh/sda1/Wallpapers/",
+--   "feh --bg-fill --random /home/saurabh/sda1/Wallpapers/",
    "picom --experimental-backend",
    "nm-applet",
    "pnmixer",
@@ -606,7 +607,7 @@ autorunApps =
    "/home/saurabh/sda1/Apps/Linux/Nextcloud.AppImage",
    "kdeconnect-indicator",
    "libinput-gestures-setup start"
-
+   --"/home/saurabh/.config/polybar/launch.sh --material"
 }
 if autorun then
    for app = 1, #autorunApps do
@@ -631,4 +632,5 @@ _G.client.connect_signal(
     end
   end
 )
+
 
